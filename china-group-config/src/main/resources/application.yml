@@ -1,0 +1,16 @@
+server:
+  port: 8040
+
+spring:
+  application:
+    name: china-group-configserver
+  cloud:
+    config:
+      label: develop
+      server:
+        git:
+          uri: https://github.com/ChnZhangkai/china-group-configserver.git
+          searchPaths: china-group-configserver
+          username: 
+          password: 
+          
