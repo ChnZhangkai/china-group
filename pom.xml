@@ -77,5 +77,6 @@
 	<modules>
 		<module>china-group-eureka</module>
 		<module>china-group-config</module>
+		<module>china-group-weather</module>
 	</modules>
 </project>
