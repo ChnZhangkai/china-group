@@ -6,6 +6,11 @@ spring:
     name: china-group-weather
   cloud:
     config:
-      label: develop
+      label: master
       profile: dev
-      uri: http://localhost:8040
+      uri: http://admin:admin123456@localhost:8040
+      
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
