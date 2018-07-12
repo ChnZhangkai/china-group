@@ -1,0 +1,11 @@
+server:
+  port: 8050
+
+spring:
+  application:
+    name: china-group-weather
+  cloud:
+    config:
+      label: develop
+      profile: dev
+      uri: http://localhost:8040

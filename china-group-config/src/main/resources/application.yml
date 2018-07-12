@@ -6,7 +6,7 @@ spring:
     name: china-group-configserver
   cloud:
     config:
-      label: develop
+      label: master
       server:
         git:
           uri: https://github.com/ChnZhangkai/china-group-configserver.git
