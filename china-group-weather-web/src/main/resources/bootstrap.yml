@@ -1,0 +1,16 @@
+server:
+  port: 8050
+
+spring:
+  application:
+    name: china-group-weather
+  cloud:
+    config:
+      label: master
+      profile: dev
+      uri: http://admin:admin123456@localhost:8040
+      
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

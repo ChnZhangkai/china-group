@@ -80,6 +80,7 @@
 	<modules>
 		<module>china-group-eureka</module>
 		<module>china-group-config</module>
-		<module>china-group-weather</module>
+		<module>china-group-weather-web</module>
+		<module>china-group-weather-app</module>
 	</modules>
 </project>
