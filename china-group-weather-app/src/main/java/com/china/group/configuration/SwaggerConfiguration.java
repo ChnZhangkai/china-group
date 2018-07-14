@@ -29,7 +29,6 @@ public class SwaggerConfiguration {
 		return new ApiInfoBuilder()
 				.title("china group")
 				.termsOfServiceUrl("https://github.com/ChnZhangkai/china-group")
-				.contact("zk")
 				.version("1.0")
 				.description("API 描述").build();
 	}
