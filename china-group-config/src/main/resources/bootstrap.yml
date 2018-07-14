@@ -10,7 +10,7 @@ spring:
       server:
         git:
           uri: https://github.com/ChnZhangkai/china-group-config-server.git
-          searchPaths: china-group-weather
+          searchPaths: china-group-weather-web,china-group-weather-web
           username: 
           password: 
 
