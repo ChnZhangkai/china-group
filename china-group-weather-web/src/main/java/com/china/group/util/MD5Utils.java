@@ -6,6 +6,13 @@ import java.security.NoSuchAlgorithmException;
 
 import com.china.group.log.Loggers;
 
+/**
+ * @ClassName: MD5Utils.java
+ * @Description: MD5工具类
+ * @author: 张凯
+ * @Date: 2018年7月14日 下午1:52:38
+ * @parma <T>
+ */
 public class MD5Utils {
 
 	public static String getMD5(String param) {

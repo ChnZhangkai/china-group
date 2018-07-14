@@ -1,8 +1,11 @@
 package com.china.group.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.china.group.service.TestService;
+import com.china.group.vo.HTTPResut;
 
 /**
  * @ClassName: TestController.java
@@ -15,12 +18,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/test")
 public class TestController {
 
-	@Value("${test}")
-	private String test;
+	@Autowired
+	private TestService testService;
 
 	@RequestMapping(value = "/test")
-	public String test() {
-		return test;
+	public HTTPResut<String> test() {
+		String result = testService.getObjectForApp();
+		return HTTPResut.success(result);
+	}
+
+	@RequestMapping(value = "error")
+	public void exception() throws Exception {
+		testService.error();
 	}
 
 }
