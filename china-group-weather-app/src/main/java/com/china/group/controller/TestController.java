@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.china.group.service.TestService;
+import com.china.group.vo.HTTPResut;
 
 /**
  * @ClassName: TestController.java
@@ -16,13 +17,13 @@ import com.china.group.service.TestService;
 @RestController
 @RequestMapping(value = "/test")
 public class TestController {
-	
+
 	@Autowired
 	private TestService testService;
 
 	@RequestMapping(value = "/test")
-	public String test() {
-		return testService.test();
+	public HTTPResut<String> test() {
+		return HTTPResut.success(testService.test());
 	}
 
 }

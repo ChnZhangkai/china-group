@@ -1,13 +1,16 @@
 package com.china.group.handler;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.china.group.exception.BaseException;
+import com.alibaba.fastjson.JSON;
+import com.china.group.exception.BusinessException;
+import com.china.group.log.Loggers;
+import com.china.group.vo.HTTPResut;
 
 /**
  * @ClassName: GlobalExceptionHandler.java
@@ -27,10 +30,22 @@ public class GlobalExceptionHandler {
 	 * @param baseException
 	 * @return
 	 */
-	public @ResponseBody <T> String baseException(ServletRequest request, ServletRequest response,
-			BaseException baseException) {
-
-		return "exception";
+	@ExceptionHandler(BusinessException.class)
+	public @ResponseBody <T> String baseException(HttpServletRequest request, HttpServletResponse response,
+			BusinessException businessException) throws Throwable {
+		Loggers.warn("{},返回码:{}", businessException.getMessage(),
+				businessException.code == null ? "999999" : businessException.code);
+		response.setContentType("application/json;charset=UTF-8");
+		try {
+			response.getOutputStream().write(JSON.toJSONString(HTTPResut.error(businessException)).getBytes("UTF-8"));
+			response.getOutputStream().flush();
+		} catch (IllegalStateException e) {
+			Loggers.warn(e.getCause());
+			response.getWriter().write(JSON.toJSONString(HTTPResut.error()));
+			response.getWriter().flush();
+		}
+		// 中断springMVC流程
+		return null;
 
 	}
 
@@ -42,11 +57,21 @@ public class GlobalExceptionHandler {
 	 * @param throwable
 	 * @return
 	 */
-	@ExceptionHandler
-	public @ResponseBody <T> String baseException(ServletRequest request, ServletResponse response,
-			Throwable throwable) {
-
-		return "exception";
+	@ExceptionHandler(Throwable.class)
+	public Object exceptionHandler(HttpServletRequest request, HttpServletResponse response, Throwable throwable)
+			throws Throwable {
+		Loggers.error("统一打印未捕获异常", throwable);
+		response.setContentType("application/json;charset=UTF-8");
+		try {
+			response.getOutputStream().write(JSON.toJSONString(HTTPResut.error()).getBytes("UTF-8"));
+			response.getOutputStream().flush();
+		} catch (IllegalStateException e) {
+			Loggers.warn(e.getCause());
+			response.getWriter().write(JSON.toJSONString(HTTPResut.error()));
+			response.getWriter().flush();
+		}
+		// 中断springMVC流程
+		return null;
 
 	}
 
