@@ -3,13 +3,13 @@ server:
 
 spring:
   application:
-    name: china-group-configserver
+    name: china-group-config-server
   cloud:
     config:
       label: master
       server:
         git:
-          uri: https://github.com/ChnZhangkai/china-group-configserver.git
+          uri: https://github.com/ChnZhangkai/china-group-config-server.git
           searchPaths: china-group-weather
           username: 
           password: 
