@@ -1,10 +1,13 @@
 package com.china.group.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.china.group.service.TestService;
+import com.china.group.model.User;
+import com.china.group.service.UserService;
 import com.china.group.vo.HTTPResut;
 
 /**
@@ -16,14 +19,20 @@ import com.china.group.vo.HTTPResut;
  */
 @RestController
 @RequestMapping(value = "/test")
-public class TestController {
+public class UserController {
 
 	@Autowired
-	private TestService testService;
+	private UserService userService;
 
 	@RequestMapping(value = "/test")
 	public HTTPResut<String> test() {
-		return HTTPResut.success(testService.test());
+		return HTTPResut.success(userService.test());
+	}
+	
+	@RequestMapping(value = "/user")
+	public HTTPResut<List<User>> getUser(){
+		List<User> list = userService.getUser();
+		return HTTPResut.success(list);
 	}
 
 }
