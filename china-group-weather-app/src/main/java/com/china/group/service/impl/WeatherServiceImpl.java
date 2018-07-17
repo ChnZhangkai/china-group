@@ -19,14 +19,15 @@ public class WeatherServiceImpl implements WeatherService {
 
 	@Value("${hf.weather.now}")
 	private String hfWeatherNow;
-
+	
 	@Autowired
 	private RestHelper restHelper;
-
+	
 	@Override
 	public WeatherNow getWeatherNow(WeatherReq req) {
+		req.setKey(hfWeatherKey);
 		JSONObject jsonParams = JSON.parseObject(JSON.toJSONString(req));
-		WeatherNow result = restHelper.getRestRequet(hfWeatherNow + "?" + hfWeatherKey, WeatherNow.class, jsonParams);
+		WeatherNow result = restHelper.getRestRequet(hfWeatherNow, WeatherNow.class, jsonParams);
 		return result;
 	}
 
