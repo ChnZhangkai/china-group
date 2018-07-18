@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 
 import com.china.group.rest.FastJsonRestTemplate;
 import com.china.group.service.WeatherService;
+import com.china.group.vo.HTTPResut;
+import com.china.group.vo.weather.WeatherNow;
+import com.china.group.vo.weather.WeatherReq;
 
 @Service
 public class WeatherServiceImpl implements WeatherService{
@@ -17,10 +20,11 @@ public class WeatherServiceImpl implements WeatherService{
 	private String weatherAppPath;
 
 	@Override
-	public void getWeatherNow() {
+	public WeatherNow getWeatherNow(WeatherReq req) {
 		
+		HTTPResut<WeatherNow> httpResut = restTemplate.postForAnObjectResult(weatherAppPath, req, WeatherNow.class);
 		
-		
+		return httpResut.getData();
 	}
 	
 }

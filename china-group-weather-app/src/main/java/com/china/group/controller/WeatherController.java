@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.china.group.exception.BusinessException;
 import com.china.group.service.WeatherService;
 import com.china.group.vo.HTTPResut;
 import com.china.group.vo.weather.WeatherNow;
@@ -24,7 +25,7 @@ public class WeatherController {
 
 	@ApiOperation(value = "获取当前天气")
 	@RequestMapping(value = "/now", method = RequestMethod.POST)
-	public HTTPResut<WeatherNow> getWeather(@RequestBody WeatherReq req) {
+	public HTTPResut<WeatherNow> getWeather(@RequestBody WeatherReq req) throws BusinessException {
 		WeatherNow weatherNow = weatherService.getWeatherNow(req);
 		return HTTPResut.success(weatherNow);
 	}
