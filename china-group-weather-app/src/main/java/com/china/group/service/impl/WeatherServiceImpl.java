@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.china.group.exception.BusinessException;
 import com.china.group.rest.RestHelper;
 import com.china.group.service.WeatherService;
 import com.china.group.util.CheckResultUtils;
+import com.china.group.vo.weather.WeatherForecast;
 import com.china.group.vo.weather.WeatherNow;
 import com.china.group.vo.weather.WeatherReq;
 
@@ -23,6 +25,9 @@ public class WeatherServiceImpl implements WeatherService {
 
 	@Value("${hf.weather.now}")
 	private String hfWeatherNow;
+	
+	@Value("${hf.weather.forecast}")
+	private String hfWeatherForecast;
 
 	@Autowired
 	private RestHelper restHelper;
@@ -37,4 +42,15 @@ public class WeatherServiceImpl implements WeatherService {
 		return list.get(0);
 	}
 
+	@Override
+	public WeatherForecast getWeatherForecast(WeatherReq req) throws BusinessException {
+		req.setKey(hfWeatherKey);
+		JSONObject jsonParams = JSON.parseObject(JSON.toJSONString(req));
+		JSONObject jsonResult = restHelper.getRestRequet(hfWeatherForecast, JSONObject.class, jsonParams);
+		CheckResultUtils.checkResult(jsonResult);
+		JSONArray jsonArray = jsonResult.getJSONArray("HeWeather6");
+		List<WeatherForecast> list = jsonArray.toJavaList(WeatherForecast.class);
+		return list.get(0);
+	}
+	
 }

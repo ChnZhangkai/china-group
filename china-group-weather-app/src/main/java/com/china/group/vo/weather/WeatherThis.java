@@ -3,7 +3,7 @@ package com.china.group.vo.weather;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(value = "天气父类")
+@ApiModel(value = "天气基础类")
 public class WeatherThis {
 
 	private String status;

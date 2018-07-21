@@ -8,7 +8,15 @@ package com.china.group.constant;
  * @parma <T>
  */
 public class WeatherAppPath {
-	
-	public static final String WEATHERTEST = "/test/test";
-	
+
+	/**
+	 * 实况天气
+	 */
+	public static final String WEATHERNOW = "/weather/now";
+
+	/**
+	 * 3-10日天气
+	 */
+	public static final String WEATHEFORECAST = "/weather/forecast";
+
 }
