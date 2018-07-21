@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.china.group.annotation.CiticLog;
 import com.china.group.exception.BusinessException;
 import com.china.group.service.WeatherService;
 import com.china.group.vo.HTTPResut;
@@ -23,6 +24,7 @@ import io.swagger.annotations.ApiOperation;
  * @Date: 2018年7月21日 上午11:42:18
  * @parma <T>
  */
+@CiticLog
 @RestController
 @Api(tags = "天气")
 @RequestMapping(value = "/weather")

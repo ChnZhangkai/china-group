@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
+import com.china.group.aspect.CiticLogAspect;
 import com.china.group.rest.RestHelper;
 
 /**
@@ -16,6 +17,11 @@ import com.china.group.rest.RestHelper;
  */
 @Configuration
 public class BeansConfiguration {
+	
+	@Bean
+	public CiticLogAspect citiLog(){
+		return new CiticLogAspect();
+	}
 	
 	@Bean
 	public RestHelper rest(){

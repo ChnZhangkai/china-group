@@ -4,6 +4,7 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.china.group.aspect.CiticLogAspect;
 import com.china.group.rest.FastJsonRestTemplate;
 
 /**
@@ -15,6 +16,11 @@ import com.china.group.rest.FastJsonRestTemplate;
  */
 @Configuration
 public class BeansConfiguration {
+	
+	@Bean
+	public CiticLogAspect citiLog(){
+		return new CiticLogAspect();
+	}
 
 	@Bean
 	@LoadBalanced
