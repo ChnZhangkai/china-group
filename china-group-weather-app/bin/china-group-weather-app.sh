@@ -1,7 +1,7 @@
 #!/bin/sh
 ## java env
-export JAVA_HOME=/usr/java/default
-export JRE_HOME=$JAVA_HOME/jre
+#export JAVA_HOME=/usr/java/default(正常情况下无需指定)
+#export JRE_HOME=$JAVA_HOME/jre(正常情况下无需指定)
 JAR_NAME=/appdata/china-group-weather-app/china-group-weather-app-0.0.1-SNAPSHOT.jar
 #PID  代表是PID文件
 PID=${JAR_NAME%.jar}\.pid
