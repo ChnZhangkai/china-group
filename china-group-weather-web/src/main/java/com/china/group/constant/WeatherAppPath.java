@@ -18,5 +18,10 @@ public class WeatherAppPath {
 	 * 3-10日天气
 	 */
 	public static final String WEATHEFORECAST = "/weather/forecast";
+	
+	/**
+	 * 逐3小时天气
+	 */
+	public static final String WEATHERHOURLY = "/weather/hourly";
 
 }

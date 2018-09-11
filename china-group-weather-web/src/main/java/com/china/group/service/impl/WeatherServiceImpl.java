@@ -9,6 +9,7 @@ import com.china.group.rest.FastJsonRestTemplate;
 import com.china.group.service.WeatherService;
 import com.china.group.vo.HTTPResut;
 import com.china.group.vo.weather.WeatherForecast;
+import com.china.group.vo.weather.WeatherHourly;
 import com.china.group.vo.weather.WeatherNow;
 import com.china.group.vo.weather.WeatherReq;
 
@@ -35,6 +36,15 @@ public class WeatherServiceImpl implements WeatherService {
 
 		HTTPResut<WeatherForecast> httpResut = restTemplate
 				.postForAnObjectResult(weatherAppPath + WeatherAppPath.WEATHEFORECAST, req, WeatherForecast.class);
+
+		return httpResut.getData();
+	}
+
+	@Override
+	public WeatherHourly getWeatherHourly(WeatherReq req) {
+
+		HTTPResut<WeatherHourly> httpResut = restTemplate
+				.postForAnObjectResult(weatherAppPath + WeatherAppPath.WEATHERHOURLY, req, WeatherHourly.class);
 
 		return httpResut.getData();
 	}

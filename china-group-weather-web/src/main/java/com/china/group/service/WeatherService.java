@@ -1,6 +1,7 @@
 package com.china.group.service;
 
 import com.china.group.vo.weather.WeatherForecast;
+import com.china.group.vo.weather.WeatherHourly;
 import com.china.group.vo.weather.WeatherNow;
 import com.china.group.vo.weather.WeatherReq;
 
@@ -10,4 +11,5 @@ public interface WeatherService {
 	
 	WeatherForecast getWeatherForecast(WeatherReq req);
 	
+	WeatherHourly getWeatherHourly(WeatherReq req);
 }

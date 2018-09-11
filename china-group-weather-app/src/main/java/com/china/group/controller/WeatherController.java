@@ -11,6 +11,7 @@ import com.china.group.exception.BusinessException;
 import com.china.group.service.WeatherService;
 import com.china.group.vo.HTTPResut;
 import com.china.group.vo.weather.WeatherForecast;
+import com.china.group.vo.weather.WeatherHourly;
 import com.china.group.vo.weather.WeatherNow;
 import com.china.group.vo.weather.WeatherReq;
 
@@ -45,6 +46,13 @@ public class WeatherController {
 	public HTTPResut<WeatherForecast> getWeatherForecast(@RequestBody WeatherReq req) throws BusinessException{
 		WeatherForecast weatherForecast = weatherService.getWeatherForecast(req);
 		return HTTPResut.success(weatherForecast);
+	}
+	
+	@ApiOperation(value = "获取逐3小时天气预报")
+	@RequestMapping(value = "/hourly",method = RequestMethod.POST)
+	public HTTPResut<WeatherHourly> getWeatherHourly(@RequestBody WeatherReq req) throws BusinessException{
+		WeatherHourly weatherHourly = weatherService.getWeatherHourly(req);
+		return HTTPResut.success(weatherHourly);
 	}
 	
 }
