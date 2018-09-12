@@ -1,4 +1,4 @@
-package com.china.group.vo.weather;
+package com.china.group.vo.weather.req;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

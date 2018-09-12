@@ -1,12 +1,14 @@
-package com.china.group.vo.weather;
+package com.china.group.vo.weather.forecast;
 
 import java.util.List;
+
+import com.china.group.vo.weather.base.WeatherBase;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel(value = "3-10天天气预报")
-public class WeatherForecast extends WeatherThis{
+public class WeatherForecast extends WeatherBase{
 	
 	@ApiModelProperty(value = "天气列表")
 	private List<WeatherDaily> daily_forecast;

@@ -1,21 +1,21 @@
-package com.china.group.vo.weather;
+package com.china.group.vo.weather.hourly;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(value = "实况天气")
-public class WeatherToday {
+@ApiModel(value = "逐3小时天气")
+public class WeatherHour {
 
-	@ApiModelProperty(value = "	体感温度，默认单位：摄氏度")
-	private String fl;
+	@ApiModelProperty(value = "预报时间，格式yyyy-MM-dd HH:mm")
+	private String time;
 
-	@ApiModelProperty(value = "温度，默认单位：摄氏度")
+	@ApiModelProperty(value = "温度")
 	private String tmp;
 
-	@ApiModelProperty(value = "	实况天气状况代码")
+	@ApiModelProperty(value = "天气状况代码")
 	private String cond_code;
 
-	@ApiModelProperty(value = "	实况天气状况描述")
+	@ApiModelProperty(value = "天气状况")
 	private String cond_txt;
 
 	@ApiModelProperty(value = "风向360角度")
@@ -24,7 +24,7 @@ public class WeatherToday {
 	@ApiModelProperty(value = "风向")
 	private String wind_dir;
 
-	@ApiModelProperty(value = "	风力")
+	@ApiModelProperty(value = "风力")
 	private String wind_sc;
 
 	@ApiModelProperty(value = "风速，公里/小时")
@@ -33,24 +33,27 @@ public class WeatherToday {
 	@ApiModelProperty(value = "相对湿度")
 	private String hum;
 
-	@ApiModelProperty(value = "降水量")
-	private String pcpn;
-
 	@ApiModelProperty(value = "大气压强")
 	private String pres;
 
-	@ApiModelProperty(value = "能见度，默认单位：公里")
-	private String vis;
+	@ApiModelProperty(value = "	降水概率，百分比")
+	private String pop;
 
-	@ApiModelProperty(value = "云量")
+	@ApiModelProperty(value = "露点温度")
+	private String dew;
+
+	@ApiModelProperty(value = "云量，百分比")
 	private String cloud;
 
-	public String getFl() {
-		return fl;
+	@ApiModelProperty(value = "图片路径")
+	private String imgUrl;
+
+	public String getTime() {
+		return time;
 	}
 
-	public void setFl(String fl) {
-		this.fl = fl;
+	public void setTime(String time) {
+		this.time = time;
 	}
 
 	public String getTmp() {
@@ -117,14 +120,6 @@ public class WeatherToday {
 		this.hum = hum;
 	}
 
-	public String getPcpn() {
-		return pcpn;
-	}
-
-	public void setPcpn(String pcpn) {
-		this.pcpn = pcpn;
-	}
-
 	public String getPres() {
 		return pres;
 	}
@@ -133,12 +128,20 @@ public class WeatherToday {
 		this.pres = pres;
 	}
 
-	public String getVis() {
-		return vis;
+	public String getPop() {
+		return pop;
 	}
 
-	public void setVis(String vis) {
-		this.vis = vis;
+	public void setPop(String pop) {
+		this.pop = pop;
+	}
+
+	public String getDew() {
+		return dew;
+	}
+
+	public void setDew(String dew) {
+		this.dew = dew;
 	}
 
 	public String getCloud() {
@@ -148,5 +151,13 @@ public class WeatherToday {
 	public void setCloud(String cloud) {
 		this.cloud = cloud;
 	}
-	
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+
 }

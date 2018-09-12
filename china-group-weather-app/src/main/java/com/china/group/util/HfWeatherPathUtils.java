@@ -24,4 +24,14 @@ public final class HfWeatherPathUtils {
 	 */
 	public static final String HFWEATHERHOURLY = "https://free-api.heweather.com/s6/weather/hourly";
 	
+	/**
+	 * 和风生活指数
+	 */
+	public static final String HFWEATHERLIFESTYLE = "https://free-api.heweather.com/s6/weather/lifestyle";
+	
+	/**
+	 * 和风空气指数
+	 */
+	public static final String HFWEATHERAIR = "https://free-api.heweather.com/s6/air/now";
+	
 }

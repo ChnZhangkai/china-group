@@ -1,10 +1,10 @@
-package com.china.group.vo.weather;
+package com.china.group.vo.weather.base;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel(value = "天气基础类")
-public class WeatherThis {
+public class WeatherBase {
 
 	private String status;
 

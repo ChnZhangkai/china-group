@@ -1,8 +1,10 @@
-package com.china.group.vo.weather;
+package com.china.group.vo.weather.now;
+
+import com.china.group.vo.weather.base.WeatherBase;
 
 import io.swagger.annotations.ApiModelProperty;
 
-public class WeatherNow extends WeatherThis{
+public class WeatherNow extends WeatherBase{
 
 	@ApiModelProperty(value = "实况天气")
 	private WeatherToday now;

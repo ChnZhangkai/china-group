@@ -1,73 +1,79 @@
-package com.china.group.vo.weather;
+package com.china.group.vo.weather.forecast;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel(value = "天气预报列表")
 public class WeatherDaily {
-	
+
 	@ApiModelProperty(value = "预报日期(yyyy-MM-dd)")
 	private String date;
-	
+
 	@ApiModelProperty(value = "日出时间")
 	private String sr;
-	
+
 	@ApiModelProperty(value = "日落时间")
 	private String ss;
-	
+
 	@ApiModelProperty(value = "月升时间")
 	private String mr;
-	
+
 	@ApiModelProperty(value = "月落时间")
 	private String ms;
-	
+
 	@ApiModelProperty(value = "最高温度")
 	private String tmp_max;
-	
+
 	@ApiModelProperty(value = "最低温度")
 	private String tmp_min;
-	
+
 	@ApiModelProperty(value = "白天天气状况代码")
 	private String cond_code_d;
-	
+
 	@ApiModelProperty(value = "晚间天气状况代码")
 	private String cond_code_n;
-	
+
 	@ApiModelProperty(value = "白天天气状况描述")
 	private String cond_txt_d;
-	
+
 	@ApiModelProperty(value = "晚间天气状况描述")
 	private String cond_txt_n;
-	
+
 	@ApiModelProperty(value = "风向360角度")
 	private String wind_deg;
-	
+
 	@ApiModelProperty(value = "风向")
 	private String wind_dir;
-	
+
 	@ApiModelProperty(value = "风力")
 	private String wind_sc;
-	
+
 	@ApiModelProperty(value = "风速(公里/小时)")
 	private String wind_spd;
-	
+
 	@ApiModelProperty(value = "相对湿度")
 	private String hum;
-	
+
 	@ApiModelProperty(value = "降水量")
 	private String pcpn;
-	
+
 	@ApiModelProperty(value = "降水概率")
 	private String pop;
-	
+
 	@ApiModelProperty(value = "大气压强")
 	private String pres;
-	
+
 	@ApiModelProperty(value = "紫外线强度指数")
 	private String uv_index;
-	
+
 	@ApiModelProperty(value = "	能见度(单位：公里)")
 	private String vis;
+
+	@ApiModelProperty(value = "白天天气图片url")
+	private String dayImgUrl;
+
+	@ApiModelProperty(value = "夜晚天气图片url")
+	private String nightImgUrl;
 
 	public String getDate() {
 		return date;
@@ -236,5 +242,21 @@ public class WeatherDaily {
 	public void setVis(String vis) {
 		this.vis = vis;
 	}
-	
+
+	public String getDayImgUrl() {
+		return dayImgUrl;
+	}
+
+	public void setDayImgUrl(String dayImgUrl) {
+		this.dayImgUrl = dayImgUrl;
+	}
+
+	public String getNightImgUrl() {
+		return nightImgUrl;
+	}
+
+	public void setNightImgUrl(String nightImgUrl) {
+		this.nightImgUrl = nightImgUrl;
+	}
+
 }

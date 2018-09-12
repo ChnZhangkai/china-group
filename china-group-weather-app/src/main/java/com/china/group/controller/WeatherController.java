@@ -10,10 +10,12 @@ import com.china.group.annotation.CiticLog;
 import com.china.group.exception.BusinessException;
 import com.china.group.service.WeatherService;
 import com.china.group.vo.HTTPResut;
-import com.china.group.vo.weather.WeatherForecast;
-import com.china.group.vo.weather.WeatherHourly;
-import com.china.group.vo.weather.WeatherNow;
-import com.china.group.vo.weather.WeatherReq;
+import com.china.group.vo.weather.air.WeatherAirNow;
+import com.china.group.vo.weather.forecast.WeatherForecast;
+import com.china.group.vo.weather.hourly.WeatherHourly;
+import com.china.group.vo.weather.life.WeatherLifeStyleNow;
+import com.china.group.vo.weather.now.WeatherNow;
+import com.china.group.vo.weather.req.WeatherReq;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -40,19 +42,33 @@ public class WeatherController {
 		WeatherNow weatherNow = weatherService.getWeatherNow(req);
 		return HTTPResut.success(weatherNow);
 	}
-	
+
 	@ApiOperation(value = "获取3-10日天气")
-	@RequestMapping(value = "/forecast",method = RequestMethod.POST)
-	public HTTPResut<WeatherForecast> getWeatherForecast(@RequestBody WeatherReq req) throws BusinessException{
+	@RequestMapping(value = "/forecast", method = RequestMethod.POST)
+	public HTTPResut<WeatherForecast> getWeatherForecast(@RequestBody WeatherReq req) throws BusinessException {
 		WeatherForecast weatherForecast = weatherService.getWeatherForecast(req);
 		return HTTPResut.success(weatherForecast);
 	}
-	
+
 	@ApiOperation(value = "获取逐3小时天气预报")
-	@RequestMapping(value = "/hourly",method = RequestMethod.POST)
-	public HTTPResut<WeatherHourly> getWeatherHourly(@RequestBody WeatherReq req) throws BusinessException{
+	@RequestMapping(value = "/hourly", method = RequestMethod.POST)
+	public HTTPResut<WeatherHourly> getWeatherHourly(@RequestBody WeatherReq req) throws BusinessException {
 		WeatherHourly weatherHourly = weatherService.getWeatherHourly(req);
 		return HTTPResut.success(weatherHourly);
 	}
-	
+
+	@ApiOperation(value = "获取今日生活指数")
+	@RequestMapping(value = "/lifestyle", method = RequestMethod.POST)
+	public HTTPResut<WeatherLifeStyleNow> getWeatherLifeStyle(@RequestBody WeatherReq req) throws BusinessException {
+		WeatherLifeStyleNow weatherLifeStyle = weatherService.getWeatherLifeStyle(req);
+		return HTTPResut.success(weatherLifeStyle);
+	}
+
+	@ApiOperation(value = "获取空气质量指数")
+	@RequestMapping(value = "/air", method = RequestMethod.POST)
+	public HTTPResut<WeatherAirNow> getWeatherAir(@RequestBody WeatherReq req) throws BusinessException {
+		WeatherAirNow weatherAir = weatherService.getWeatherAir(req);
+		return HTTPResut.success(weatherAir);
+	}
+
 }
