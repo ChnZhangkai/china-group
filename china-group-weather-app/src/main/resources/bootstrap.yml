@@ -4,5 +4,5 @@ spring:
   cloud:
     config:
       label: master
-      profile: dev
+      profile: test
       uri: http://admin:admin123456@localhost:8040

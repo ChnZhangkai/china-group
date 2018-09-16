@@ -1,7 +1,6 @@
 package com.china.group.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,36 +36,46 @@ public class WeatherController {
 	private WeatherService weatherService;
 
 	@ApiOperation(value = "获取当前天气")
-	@RequestMapping(value = "/now", method = RequestMethod.POST)
-	public HTTPResut<WeatherNow> getWeatherNow(@RequestBody WeatherReq req) throws BusinessException {
+	@RequestMapping(value = "/now", method = RequestMethod.GET)
+	public HTTPResut<WeatherNow> getWeatherNow(String location) throws BusinessException {
+		WeatherReq req = new WeatherReq();
+		req.setLocation(location);
 		WeatherNow weatherNow = weatherService.getWeatherNow(req);
 		return HTTPResut.success(weatherNow);
 	}
 
 	@ApiOperation(value = "获取3-10日天气")
-	@RequestMapping(value = "/forecast", method = RequestMethod.POST)
-	public HTTPResut<WeatherForecast> getWeatherForecast(@RequestBody WeatherReq req) throws BusinessException {
+	@RequestMapping(value = "/forecast", method = RequestMethod.GET)
+	public HTTPResut<WeatherForecast> getWeatherForecast(String location) throws BusinessException {
+		WeatherReq req = new WeatherReq();
+		req.setLocation(location);
 		WeatherForecast weatherForecast = weatherService.getWeatherForecast(req);
 		return HTTPResut.success(weatherForecast);
 	}
 
 	@ApiOperation(value = "获取逐3小时天气预报")
-	@RequestMapping(value = "/hourly", method = RequestMethod.POST)
-	public HTTPResut<WeatherHourly> getWeatherHourly(@RequestBody WeatherReq req) throws BusinessException {
+	@RequestMapping(value = "/hourly", method = RequestMethod.GET)
+	public HTTPResut<WeatherHourly> getWeatherHourly(String location) throws BusinessException {
+		WeatherReq req = new WeatherReq();
+		req.setLocation(location);
 		WeatherHourly weatherHourly = weatherService.getWeatherHourly(req);
 		return HTTPResut.success(weatherHourly);
 	}
 
 	@ApiOperation(value = "获取今日生活指数")
-	@RequestMapping(value = "/lifestyle", method = RequestMethod.POST)
-	public HTTPResut<WeatherLifeStyleNow> getWeatherLifeStyle(@RequestBody WeatherReq req) throws BusinessException {
+	@RequestMapping(value = "/lifestyle", method = RequestMethod.GET)
+	public HTTPResut<WeatherLifeStyleNow> getWeatherLifeStyle(String location) throws BusinessException {
+		WeatherReq req = new WeatherReq();
+		req.setLocation(location);
 		WeatherLifeStyleNow weatherLifeStyle = weatherService.getWeatherLifeStyle(req);
 		return HTTPResut.success(weatherLifeStyle);
 	}
 
 	@ApiOperation(value = "获取空气质量指数")
-	@RequestMapping(value = "/air", method = RequestMethod.POST)
-	public HTTPResut<WeatherAirNow> getWeatherAir(@RequestBody WeatherReq req) throws BusinessException {
+	@RequestMapping(value = "/air", method = RequestMethod.GET)
+	public HTTPResut<WeatherAirNow> getWeatherAir(String location) throws BusinessException {
+		WeatherReq req = new WeatherReq();
+		req.setLocation(location);
 		WeatherAirNow weatherAir = weatherService.getWeatherAir(req);
 		return HTTPResut.success(weatherAir);
 	}
